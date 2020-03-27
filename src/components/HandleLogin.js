@@ -17,7 +17,9 @@ const HandleLogin = props => {
     );
   } else {
     return (
-      <Button onClick={() => props.logoutUser(defaultUser)}>Logout</Button>
+      <a href="/login">
+        <Button onClick={() => props.logoutUser(defaultUser)}>Logout</Button>
+      </a>
     );
   }
 };

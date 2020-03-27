@@ -26,6 +26,7 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
+  console.log("In controller", req.body);
   const { userName, userPassword } = req.body;
   let sql = "SELECT * FROM users WHERE userName = ?";
   sql = mysql.format(sql, [userName]);

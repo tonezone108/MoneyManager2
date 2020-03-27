@@ -30,8 +30,8 @@ const Router = () => {
     <Switch>
       <div>
         <Route path="/login" component={Login} />
-        <Route path="/biz/:id" component={Biz} />
-        <Route exact path="/" component={Dashboard} />
+        <ProtectedRoute path="/biz/:id" component={Biz} />
+        <ProtectedRoute exact path="/" component={Dashboard} />
       </div>
     </Switch>
   );
