@@ -26,5 +26,22 @@ export default {
       hours: "test3",
       description: "test3"
     }
-  ]
+  ],
+
+  incomeExpenses: {
+    RegularIncome: 0,
+    Taxes: 0,
+    Insurance: 0,
+    Debts: 0,
+    Housing: 0,
+    Investing: 0
+  },
+
+  incomeAllocation: {
+    EarnedIncome: 0,
+    Groceries: 0,
+    Transport: 0,
+    Leisure: 0,
+    Luxuries: 0
+  }
 };

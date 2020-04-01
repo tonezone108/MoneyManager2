@@ -21,17 +21,6 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddBiz from "../container/AddBiz";
 
-// const HandleIcon = props => {
-//   console.log(props);
-//   if (props.user.username) {
-//     <DeleteIcon
-//       // add onClick method here
-//       onClick={() => props.removeCar(idx)}
-//       className="icon text-red"
-//     />;
-//   }
-// };
-
 class Dashboard extends Component {
   render() {
     return (
@@ -73,6 +62,93 @@ class Dashboard extends Component {
               </TableBody>
             ))}
           </Table>
+
+          <br />
+
+          <Table>
+            <TableHead>
+              <h1>Income and Expenses</h1>
+            </TableHead>
+            <TableBody>
+              <TableCell>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>RegularIncome</b>{" "}
+                    <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Taxes</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Insurance</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Debts</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Housing</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Investing</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+              </TableCell>
+            </TableBody>
+
+            <TableRow align="left">
+              <p>Remaining Income : $xxxx</p> <button>Add Expenses </button>
+            </TableRow>
+
+            <br />
+            <TableHead>
+              <h1>Income Allocation</h1>
+            </TableHead>
+            <TableBody>
+              <TableCell>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Earned Income</b>{" "}
+                    <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Groceries</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Transport</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Leisure</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+                <TableRow align="left">
+                  <p style={{ paddingLeft: 60 }}>
+                    <b>Luxuries</b> <b style={{ align: "right" }}>: XXXX</b>
+                  </p>
+                </TableRow>
+              </TableCell>
+            </TableBody>
+            <TableRow align="left">
+              <p>Remaining Savings : $xxxx</p>{" "}
+              <button>Create Allocation</button>
+            </TableRow>
+          </Table>
           {/* <a id="login/logout" href="/Login">
               link text
             </a> */}
@@ -84,25 +160,5 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
-
-// <TableBody>
-//       {/* Change cars to props.cars and remove the cars.json import above */}
-//       {props.cars.map(car => (
-//         <TableRow key={car.id}>
-//           <TableCell component="th" scope="row">
-//             {car.id}
-//           </TableCell>
-//           <TableCell>{car["Name"]}</TableCell>
-//           <TableCell>{car["Miles_per_Gallon"]}</TableCell>
-//           <TableCell>{car["Cylinders"]}</TableCell>
-//           <TableCell>{car["Displacement"]}</TableCell>
-//           <TableCell>{car["Horsepower"]}</TableCell>
-//           <TableCell>{car["Weight_in_lbs"]}</TableCell>
-//           <TableCell>{car["Acceleration"]}</TableCell>
-//           <TableCell>{car["Year"]}</TableCell>
-//           <TableCell>{car["Origin"]}</TableCell>
-//         </TableRow>
-//       ))}
-//     </TableBody>
 
 //REFER TO LAST THREE HOMEWORK ASSIGNMENTS FOR GUIDANCE
