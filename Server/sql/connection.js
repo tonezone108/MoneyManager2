@@ -9,7 +9,7 @@ class Connection {
         host: "34.66.38.33",
         user: "root",
         password: "SQLMAMA",
-        database: "MoneyManager"
+        database: "MoneyManager",
       });
 
       return this.pool;

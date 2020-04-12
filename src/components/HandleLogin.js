@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 const defaultUser = {
-  username: false,
-  password: false
+  userName: false,
+  userPassword: false,
 };
 
-const HandleLogin = props => {
+const HandleLogin = (props) => {
   console.log(props);
-  if (!props.user.username) {
+  if (!props.user.userName) {
     return (
       <a href="/login">
         <Button>Login</Button>

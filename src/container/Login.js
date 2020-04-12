@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import App from "../components/Login";
 import { loginUser } from "../redux/actions";
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    loginUser: user => dispatch(loginUser(user))
+    loginUser: (user) => dispatch(loginUser(user)),
   };
 };
 

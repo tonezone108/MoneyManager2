@@ -1,7 +1,7 @@
 export default {
   user: {
-    username: false,
-    password: false
+    userName: "",
+    userPassword: "",
   },
 
   biz: [
@@ -10,22 +10,22 @@ export default {
       name: "test1",
       address: "test1",
       hours: "test1",
-      description: "test1"
+      description: "test1",
     },
     {
       id: 2,
       name: "test2",
       address: "test2",
       hours: "test2",
-      description: "test2"
+      description: "test2",
     },
     {
       id: 3,
       name: "test3",
       address: "test3",
       hours: "test3",
-      description: "test3"
-    }
+      description: "test3",
+    },
   ],
 
   incomeExpenses: {
@@ -34,7 +34,7 @@ export default {
     Insurance: 0,
     Debts: 0,
     Housing: 0,
-    Investing: 0
+    Investing: 0,
   },
 
   incomeAllocation: {
@@ -42,6 +42,6 @@ export default {
     Groceries: 0,
     Transport: 0,
     Leisure: 0,
-    Luxuries: 0
-  }
+    Luxuries: 0,
+  },
 };

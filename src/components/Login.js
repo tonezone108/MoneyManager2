@@ -4,25 +4,36 @@ import { TextField, Button, Container } from "@material-ui/core";
 
 class App extends Component {
   state = {
-    username: "",
-    password: "",
-    redirect: false
+    userName: "",
+    userPassword: "",
+    redirect: false,
   };
 
-  handleTextChange = e => {
+  handleTextChange = (e) => {
     const state = { ...this.state };
     state[e.target.name] = e.target.value;
     this.setState(state);
   };
 
-  login = e => {
+  login = (e) => {
+    const userObject = {
+      userName: this.state.userName,
+      userPassword: this.state.userPassword,
+    };
     e.preventDefault();
     // set cookie here
     // set loggedIn = true and max-age = 60*1000 (one minute)
-    document.cookie = "loggedIn=true;max-age=60*1000";
-    this.props.loginUser(this.state);
+
+    const response = this.props.loginUser(userObject);
     // window.location.replace("/"); //////////////////////////
-    this.setState({ redirect: true });
+
+    if (response.type === "LOGIN") {
+      console.log("THIS IS THE RESPONSE " + response.type);
+      document.cookie = "loggedIn=true;max-age=60*1000";
+      this.setState({ redirect: true });
+    } else {
+      console.log(response.type);
+    }
   };
 
   render() {
@@ -38,18 +49,18 @@ class App extends Component {
             <TextField
               required
               onChange={this.handleTextChange}
-              value={this.state.username}
-              name="username"
-              label="Username"
+              value={this.state.userName}
+              name="userName"
+              label="Name"
               type="text"
             />
             <TextField
               required
               onChange={this.handleTextChange}
-              value={this.state.password}
-              name="password"
+              value={this.state.userPassword}
+              name="userPassword"
               label="Password"
-              type="password"
+              type="userPassword"
             />
             <Button
               type="submit"

@@ -11,13 +11,13 @@ const signup = (req, res) => {
   const { userName, userPassword } = req.body;
   let sql = "INSERT INTO users (userName, userPassword) VALUES (?, ?)";
 
-  bcryptjs.hash(userPassword, saltRounds, function(err, hash) {
+  bcryptjs.hash(userPassword, saltRounds, function (err, hash) {
     sql = mysql.format(sql, [userName, hash]);
 
     pool.query(sql, (err, result) => {
       if (err) {
         if (err.code === "ER_DUP_ENTRY")
-          return res.status(409).send("Username is taken");
+          return res.status(409).send("userName is taken");
         return handleSQLError(res, err);
       }
       return res.send("Sign-up successful");
@@ -36,16 +36,18 @@ const login = (req, res) => {
     if (!rows.length) return res.status(404).send("No matching users");
 
     const hash = rows[0].userPassword;
-    bcryptjs.compare(userPassword, hash).then(result => {
-      if (!result) return res.status(400).send("Invalid password");
+    bcryptjs.compare(userPassword, hash).then((result) => {
+      if (!result) return res.status(400).send("Invalid userPassword");
 
       const data = { ...rows[0] };
-      data.password = "REDACTED";
+      data.userPassword = "REDACTED";
 
       const token = jwt.sign(data, "secret");
+      // res.headers.set("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json({
         msg: "Login successful",
-        token
+        token,
       });
     });
   });
@@ -53,5 +55,5 @@ const login = (req, res) => {
 
 module.exports = {
   signup,
-  login
+  login,
 };

@@ -26,7 +26,7 @@ const createAllocation = (req, res) => {
     groceries,
     transport,
     leisure,
-    luxuries
+    luxuries,
   } = req.body;
   let sql =
     "INSERT INTO incomeAllocation (earnedIncome, savings, groceries, transport, leisure, luxuries  ) VALUES (?, ?, ?, ?, ?, ?)";
@@ -36,7 +36,7 @@ const createAllocation = (req, res) => {
     groceries,
     transport,
     leisure,
-    luxuries
+    luxuries,
   ]);
 
   pool.query(sql, (err, results) => {
@@ -62,7 +62,7 @@ const updateAllocationById = (req, res) => {
     groceries,
     transport,
     leisure,
-    luxuries
+    luxuries,
   } = req.body;
   let sql =
     "UPDATE incomeAllocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE allocationId = ?";
@@ -73,7 +73,7 @@ const updateAllocationById = (req, res) => {
     transport,
     leisure,
     luxuries,
-    req.params.id
+    req.params.id,
   ]);
 
   pool.query(sql, (err, results) => {
@@ -97,5 +97,5 @@ module.exports = {
   getAllocationById,
   createAllocation,
   updateAllocationById,
-  deleteALlocationByAllocationId
+  deleteALlocationByAllocationId,
 };

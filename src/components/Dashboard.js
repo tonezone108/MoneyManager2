@@ -15,7 +15,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -34,7 +34,7 @@ class Dashboard extends Component {
                 <TableCell align="left">Hours</TableCell>
                 <TableCell align="left">Address</TableCell>
                 <TableCell align="left">
-                  {this.props.user.username && (
+                  {this.props.user.userName && (
                     <AddBiz bizTotal={this.props.biz.length} />
                   )}
                 </TableCell>
@@ -51,7 +51,7 @@ class Dashboard extends Component {
                   <TableCell align="left">{biz.address}</TableCell>
 
                   <TableCell align="left">
-                    {this.props.user.username && (
+                    {this.props.user.userName && (
                       <button onClick={() => this.props.removeBiz(index)}>
                         DELETE
                       </button>
