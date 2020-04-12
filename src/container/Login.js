@@ -8,4 +8,12 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = (state) => {
+  // return { user: state.user }
+  const { user } = state;
+  return {
+    user,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -24,15 +24,15 @@ class App extends Component {
     // set cookie here
     // set loggedIn = true and max-age = 60*1000 (one minute)
 
-    const response = this.props.loginUser(userObject);
+    this.props.loginUser(userObject);
     // window.location.replace("/"); //////////////////////////
 
-    if (response.type === "LOGIN") {
-      console.log("THIS IS THE RESPONSE " + response.type);
+    if (this.props.user.userName !== "") {
+      console.log("THIS IS THE RESPONSE " + this.props.user.userName);
       document.cookie = "loggedIn=true;max-age=60*1000";
       this.setState({ redirect: true });
     } else {
-      console.log(response.type);
+      console.log(this.props.user.userName);
     }
   };
 

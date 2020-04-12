@@ -43,8 +43,10 @@ const login = (req, res) => {
       data.userPassword = "REDACTED";
 
       const token = jwt.sign(data, "secret");
-      // res.headers.set("Access-Control-Allow-Origin", "*");
-      res.setHeader("Access-Control-Allow-Origin", "*");
+      //CORS?
+
+      // res.header("Access-Control-Allow-Origin", "*");
+      // res.setHeader("Access-Control-Allow-Origin", "*");
       res.json({
         msg: "Login successful",
         token,
