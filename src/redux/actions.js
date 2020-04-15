@@ -3,6 +3,10 @@ const loginUser = (User) => {
     fetch("http://localhost:4001/auth/login", {
       method: "POST",
       body: JSON.stringify(User),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
     })
       .then((res) =>
         res.json().then((data) => {
@@ -13,7 +17,7 @@ const loginUser = (User) => {
       // .then((results) => console.log("results", results))
 
       .catch((error) => {
-        console.log("THIS IS THE ERROR" + error);
+        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,

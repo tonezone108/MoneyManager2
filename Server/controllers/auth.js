@@ -32,8 +32,12 @@ const login = (req, res) => {
   sql = mysql.format(sql, [userName]);
 
   pool.query(sql, (err, rows) => {
-    if (err) return handleSQLError(res, err);
-    if (!rows.length) return res.status(404).send("No matching users");
+    if (err) {
+      return handleSQLError(res, err);
+    }
+    if (!rows.length) {
+      return res.status(404).send("No matching users");
+    }
 
     const hash = rows[0].userPassword;
     bcryptjs.compare(userPassword, hash).then((result) => {
