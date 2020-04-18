@@ -17,7 +17,7 @@ class App extends Component {
           <BrowserRouter>
             <AppBar style={{ background: "green" }} position="staic">
               <Toolbar>
-                <h1>Small Business App</h1>
+                <h1>Money Manager App (Under Construction)</h1>
               </Toolbar>
               <div align="left">
                 <a href="/">
