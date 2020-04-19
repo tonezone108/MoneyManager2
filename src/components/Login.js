@@ -42,6 +42,7 @@ class App extends Component {
   };
 
   createAccount = (e) => {
+    //choppy but it manages to reach the backend
     const userObject = {
       userName: this.state.userName,
       userPassword: this.state.userPassword,
