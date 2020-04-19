@@ -8,6 +8,7 @@ import Biz from "./container/Biz";
 
 // Start Router function here //
 const checkAuth = () => {
+  //can this be implemented in the login??????
   const cookies = cookie.parse(document.cookie);
   return cookies["loggedIn"] ? true : false;
 };
@@ -18,7 +19,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         checkAuth() ? <Component {...props} /> : <Redirect to="/login" />
       }
     />

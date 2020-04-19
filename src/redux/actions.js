@@ -27,6 +27,36 @@ const loginUser = (User) => {
   };
 };
 
+//This is new
+const addUser = (User) => {
+  return function (dispatch) {
+    fetch("http://localhost:4001/auth/signup", {
+      method: "POST",
+      body: JSON.stringify(User),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((res) =>
+        res.json().then((data) => {
+          console.log("THIS THE DATA?" + data);
+          dispatch(userAdded(data));
+        })
+      )
+      // .then((results) => console.log("results", results))
+
+      .catch((error) => {
+        console.log("THIS IS THE ERROR : " + error);
+        return {
+          type: "error",
+          value: error,
+        };
+      });
+    console.log(User, "IS THE USER HERE?");
+  };
+};
+
 const userLoaded = (data) => {
   return {
     type: "LOGIN",
@@ -34,6 +64,12 @@ const userLoaded = (data) => {
   };
 };
 
+const userAdded = (data) => {
+  return {
+    type: "ADD_USER",
+    value: data,
+  };
+};
 const logoutUser = (User) => {
   document.cookie = "loggedIn=false; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   return {
@@ -56,4 +92,4 @@ const addBiz = (biz) => {
   };
 };
 
-export { loginUser, logoutUser, removeBiz, addBiz };
+export { loginUser, logoutUser, removeBiz, addBiz, addUser };

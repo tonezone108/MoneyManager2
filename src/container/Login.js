@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import App from "../components/Login";
-import { loginUser } from "../redux/actions";
+import { loginUser, addUser } from "../redux/actions";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loginUser: (user) => dispatch(loginUser(user)),
+    addUser: (user) => dispatch(addUser(user)),
   };
 };
 

@@ -19,6 +19,8 @@ const user = (state = {}, action) => {
       return action.value;
     case "LOGOUT":
       return action.value;
+    case "ADD_USER":
+      return action.value;
     default:
       return state;
   }
