@@ -4,17 +4,13 @@ import Dashboard from "./container/Dashboard";
 import cookie from "cookie";
 import Login from "./container/Login";
 import Biz from "./container/Biz";
-// Write component imports here //
 
-// Start Router function here //
 const checkAuth = () => {
   //can this be implemented in the login??????
   const cookies = cookie.parse(document.cookie);
   return cookies["loggedIn"] ? true : false;
 };
-// Check the cookies for a cookie called "loggedIn"
 
-// Write ProtectedRoute function here
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route

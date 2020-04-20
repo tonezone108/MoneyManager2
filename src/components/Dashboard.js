@@ -69,12 +69,17 @@ class Dashboard extends Component {
             <TableHead>
               <h1>Income and Expenses</h1>
             </TableHead>
+
+            {/* {props.user.username} */}
+
             <TableBody>
               <TableCell>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
                     <b>RegularIncome</b>{" "}
-                    <b style={{ align: "right" }}>: XXXX</b>
+                    <b style={{ align: "right" }}>
+                      {/* {this.props.incincomeExpenses.RegularIncome}   why is this undefined? */}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">

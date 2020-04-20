@@ -26,4 +26,6 @@ const user = (state = {}, action) => {
   }
 };
 
-export default combineReducers({ biz, user });
+const incomeExpenses = (state = null) => state;
+
+export default combineReducers({ biz, user, incomeExpenses });
