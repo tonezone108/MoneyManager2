@@ -23,6 +23,7 @@ import AddBiz from "../container/AddBiz";
 
 class Dashboard extends Component {
   render() {
+    console.log("THIS IS THE PROPS --> ", this.props);
     return (
       <div>
         <div>
@@ -78,33 +79,48 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>RegularIncome</b>{" "}
                     <b style={{ align: "right" }}>
-                      {/* {this.props.incincomeExpenses.RegularIncome}   why is this undefined? */}
+                      : {this.props.incomeExpenses.RegularIncome}
                     </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Taxes</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Taxes</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeExpenses.Taxes}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Insurance</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Insurance</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeExpenses.Insurance}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Debts</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Debts</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeExpenses.Debts}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Housing</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Housing</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeExpenses.Housing}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Investing</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Investing</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeExpenses.Investing}
+                    </b>
                   </p>
                 </TableRow>
               </TableCell>
@@ -123,28 +139,42 @@ class Dashboard extends Component {
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
                     <b>Earned Income</b>{" "}
-                    <b style={{ align: "right" }}>: XXXX</b>
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeAllocation.EarnedIncome}
+                    </b>
                   </p>
                 </TableRow>
 
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Groceries</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Groceries</b>{" "}
+                    <b style={{ align: "right" }}>
+                      {this.props.incomeAllocation.Groceries}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Transport</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Transport</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeAllocation.Transport}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Leisure</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Leisure</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeAllocation.Leisure}
+                    </b>
                   </p>
                 </TableRow>
                 <TableRow align="left">
                   <p style={{ paddingLeft: 60 }}>
-                    <b>Luxuries</b> <b style={{ align: "right" }}>: XXXX</b>
+                    <b>Luxuries</b>{" "}
+                    <b style={{ align: "right" }}>
+                      : {this.props.incomeAllocation.Luxuries}
+                    </b>
                   </p>
                 </TableRow>
               </TableCell>

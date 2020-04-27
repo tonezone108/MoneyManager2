@@ -29,7 +29,7 @@ export default {
   ],
 
   incomeExpenses: {
-    RegularIncome: 12,
+    RegularIncome: 0.0,
     Taxes: 0.0,
     Insurance: 0.0,
     Debts: 0.0,

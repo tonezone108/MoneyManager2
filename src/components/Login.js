@@ -24,21 +24,28 @@ class App extends Component {
     this.setState(state);
   };
 
-  login = (e) => {
+  async c() {
     const userObject = {
       userName: this.state.userName,
       userPassword: this.state.userPassword,
     };
-    e.preventDefault();
+
     this.props.loginUser(userObject);
-    // window.location.replace("/"); //////////////////////////
+
     if (this.props.user.userName !== "") {
       console.log("THIS IS THE RESPONSE " + this.props.user.userName);
-
+      document.cookie = "loggedIn=true;max-age=20*1000";
       this.setState({ redirect: true }); //leave this alone.
     } else {
       console.log(this.props.user.userName);
     }
+  }
+
+  login = (e) => {
+    e.preventDefault();
+    // this needs to finish before running the next piece type async, to create await for a certain line  google async await  document.cookie = "loggedIn=true;max-age=20*1000";
+    // window.location.replace("/"); //////////////////////////
+    this.c();
   };
 
   createAccount = (e) => {

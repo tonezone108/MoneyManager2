@@ -12,7 +12,6 @@ const loginUser = (User) => {
         res.json().then((data) => {
           console.log("THIS THE DATA?" + data);
           dispatch(userLoaded(data));
-          document.cookie = "loggedIn=true;max-age=20*1000";
         })
       )
       // .then((results) => console.log("results", results))
