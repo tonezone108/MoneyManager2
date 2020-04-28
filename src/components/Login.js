@@ -24,28 +24,16 @@ class App extends Component {
     this.setState(state);
   };
 
-  async c() {
+  login = (e) => {
+    e.preventDefault();
+    // this needs to finish before running the next piece type async, to create await for a certain line  google async await  document.cookie = "loggedIn=true;max-age=20*1000";
+    // window.location.replace("/"); //////////////////////////
     const userObject = {
       userName: this.state.userName,
       userPassword: this.state.userPassword,
     };
 
     this.props.loginUser(userObject);
-
-    if (this.props.user.userName !== "") {
-      console.log("THIS IS THE RESPONSE " + this.props.user.userName);
-      document.cookie = "loggedIn=true;max-age=20*1000";
-      this.setState({ redirect: true }); //leave this alone.
-    } else {
-      console.log(this.props.user.userName);
-    }
-  }
-
-  login = (e) => {
-    e.preventDefault();
-    // this needs to finish before running the next piece type async, to create await for a certain line  google async await  document.cookie = "loggedIn=true;max-age=20*1000";
-    // window.location.replace("/"); //////////////////////////
-    this.c();
   };
 
   createAccount = (e) => {
@@ -62,7 +50,17 @@ class App extends Component {
       console.log(this.props.user.userName);
     }
   };
-
+  componentDidUpdate() {
+    //lifecycle function google it for reference, + componentDidUpdate
+    console.log("COMPONENT DID UPDATE ");
+    if (this.props.user.userName !== "") {
+      console.log("THIS IS THE RESPONSE " + this.props.user.userName);
+      document.cookie = "loggedIn=true;max-age=20*1000";
+      this.setState({ redirect: true }); //leave this alone.
+    } else {
+      console.log(this.props.user.userName);
+    }
+  }
   render() {
     const { redirect } = this.state;
     if (redirect) {
