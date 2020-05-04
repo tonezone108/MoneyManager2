@@ -23,27 +23,38 @@ const getEntryById = (req, res) => {
 
 const createEntry = (req, res) => {
   // INSERT INTO Income&Expenses test entry
-  let regularIncome = req.body.regularIncome;
-  let taxes = req.body.taxes;
-  let insurance = req.body.insurance;
-  let debts = req.body.debts;
-  let housing = req.body.housing;
-  let investing = req.body.investing;
-  let remainingIncome = req.body.remainingIncome;
+  // let regularIncome = req.body.regularIncome;
+  // let taxes = req.body.taxes;
+  // let insurance = req.body.insurance;
+  // let debts = req.body.debts;
+  // let housing = req.body.housing;
+  // let investing = req.body.investing;
+  // let remainingIncome = req.body.remainingIncome;
 
-  let sql =
-    "INSERT INTO incomeExpenses (regularIncome, taxes, insurance, debts, housing, investing, remainingIncome) VALUES (?, ?, ?, ?, ?, ?, ?);";
-  // WHAT GOES IN THE BRACKETS
-  const replacements = [
+  const {
     regularIncome,
     taxes,
     insurance,
     debts,
     housing,
     investing,
-    remainingIncome
-  ];
-  sql = mysql.format(sql, replacements);
+    remainingIncome,
+    userName,
+  } = req.body;
+
+  let sql =
+    "INSERT INTO incomeExpenses (regularIncome, taxes, insurance, debts, housing, investing, remainingIncome, userName) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+  // WHAT GOES IN THE BRACKETS
+  sql = mysql.format(sql, [
+    regularIncome,
+    taxes,
+    insurance,
+    debts,
+    housing,
+    investing,
+    remainingIncome,
+    userName,
+  ]);
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err);
@@ -59,7 +70,7 @@ const updateEntryById = (req, res) => {
     debts,
     housing,
     investing,
-    remainingIncome
+    remainingIncome,
   } = req.body;
   let sql =
     "UPDATE incomeExpenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE expensesId = ? ";
@@ -71,7 +82,7 @@ const updateEntryById = (req, res) => {
     housing,
     investing,
     remainingIncome,
-    req.params.id
+    req.params.id,
   ]);
 
   pool.query(sql, (err, results) => {
@@ -106,5 +117,5 @@ module.exports = {
   getAllEntries,
   getEntryById,
   updateEntryById,
-  deleteUserByExpensesId
+  deleteUserByExpensesId,
 };

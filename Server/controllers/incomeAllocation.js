@@ -27,9 +27,10 @@ const createAllocation = (req, res) => {
     transport,
     leisure,
     luxuries,
+    userName,
   } = req.body;
   let sql =
-    "INSERT INTO incomeAllocation (earnedIncome, savings, groceries, transport, leisure, luxuries  ) VALUES (?, ?, ?, ?, ?, ?)";
+    "INSERT INTO incomeAllocation (earnedIncome, savings, groceries, transport, leisure, luxuries, userName  ) VALUES (?, ?, ?, ?, ?, ?, ?)";
   sql = mysql.format(sql, [
     earnedIncome,
     savings,
@@ -37,6 +38,7 @@ const createAllocation = (req, res) => {
     transport,
     leisure,
     luxuries,
+    userName,
   ]);
 
   pool.query(sql, (err, results) => {

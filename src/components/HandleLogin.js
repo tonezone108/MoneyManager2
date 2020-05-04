@@ -4,11 +4,10 @@ import { Button } from "@material-ui/core";
 
 const defaultUser = {
   userName: false,
-  userPassword: false,
 };
 
 const HandleLogin = (props) => {
-  console.log(props);
+  console.log(props, "Is handleLogin working?");
   if (!props.user.userName) {
     return (
       <a href="/login">

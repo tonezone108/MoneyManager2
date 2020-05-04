@@ -14,6 +14,7 @@ const biz = (state = [], action) => {
   }
 };
 const user = (state = {}, action) => {
+  console.log(action, "This is reducers action");
   switch (action.type) {
     case "LOGIN":
       return action.value;

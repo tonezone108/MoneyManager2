@@ -52,7 +52,7 @@ class App extends Component {
   };
   componentDidUpdate() {
     //lifecycle function google it for reference, + componentDidUpdate
-    console.log("COMPONENT DID UPDATE ");
+
     if (this.props.user.userName !== "") {
       console.log("THIS IS THE RESPONSE " + this.props.user.userName);
       document.cookie = "loggedIn=true;max-age=20*1000";
@@ -85,7 +85,7 @@ class App extends Component {
               value={this.state.userPassword}
               name="userPassword"
               label="Password"
-              type="userPassword"
+              type="password"
             />
             <Button
               type="submit"
@@ -134,7 +134,7 @@ class App extends Component {
                     onChange={this.handleTextChange}
                     name="userPassword"
                     label="Password"
-                    type="userPassword"
+                    type="password"
                     required
                   />
                   <br />

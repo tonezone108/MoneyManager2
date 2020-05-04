@@ -22,6 +22,10 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import AddBiz from "../container/AddBiz";
 
 class Dashboard extends Component {
+  componentDidMount() {
+    //call the load user data action here
+  }
+
   render() {
     console.log("THIS IS THE PROPS --> ", this.props);
     return (

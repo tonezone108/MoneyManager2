@@ -1,4 +1,10 @@
 const loginUser = (User) => {
+  // console.log(User);
+  // return {
+  //   type: "LOGIN",
+  //   value: User,
+  // };
+
   return function (dispatch) {
     fetch("http://localhost:4001/auth/login", {
       method: "POST",
@@ -10,7 +16,8 @@ const loginUser = (User) => {
     })
       .then((res) =>
         res.json().then((data) => {
-          console.log("THIS THE DATA?" + data);
+          console.log("THIS THE DATA?", data);
+
           dispatch(userLoaded(data));
         })
       )
@@ -77,6 +84,8 @@ const logoutUser = (User) => {
     value: User,
   };
 };
+
+//make new actions here
 
 const removeBiz = (index) => {
   return {
