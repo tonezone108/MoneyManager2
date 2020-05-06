@@ -84,6 +84,80 @@ const logoutUser = (User) => {
     value: User,
   };
 };
+////
+const getUserExpenses = (User) => {
+  return function (dispatch) {
+    fetch("http://localhost:4001/entry/", {
+      method: "GET",
+      body: JSON.stringify(User),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((res) =>
+        res.json().then((data) => {
+          console.log("THIS THE DATA?", data);
+
+          dispatch(userExpensesLoaded(data));
+        })
+      )
+      // .then((results) => console.log("results", results))
+
+      .catch((error) => {
+        console.log("THIS IS THE ERROR : " + error);
+        return {
+          type: "error",
+          value: error,
+        };
+      });
+    console.log(User, "IS THE USER HERE?");
+  };
+};
+
+const userExpensesLoaded = (data) => {
+  return {
+    type: "LOAD_USER_EXPENSES",
+    value: data,
+  };
+};
+
+const getUserAllocation = (User) => {
+  return function (dispatch) {
+    fetch("http://localhost:4001/allocation", {
+      method: "GET",
+      body: JSON.stringify(User),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((res) =>
+        res.json().then((data) => {
+          console.log("THIS THE DATA?", data);
+
+          dispatch(userAllocationLoaded(data));
+        })
+      )
+      // .then((results) => console.log("results", results))
+
+      .catch((error) => {
+        console.log("THIS IS THE ERROR : " + error);
+        return {
+          type: "error",
+          value: error,
+        };
+      });
+    console.log(User, "IS THE USER HERE?");
+  };
+};
+
+const userAllocationLoaded = (data) => {
+  return {
+    type: "LOAD_USER_ALLOCATION",
+    value: data,
+  };
+};
 
 //make new actions here
 
@@ -101,4 +175,12 @@ const addBiz = (biz) => {
   };
 };
 
-export { loginUser, logoutUser, removeBiz, addBiz, addUser };
+export {
+  loginUser,
+  logoutUser,
+  removeBiz,
+  addBiz,
+  addUser,
+  getUserExpenses,
+  getUserAllocation,
+};

@@ -27,7 +27,25 @@ const user = (state = {}, action) => {
   }
 };
 
-const incomeExpenses = (state = {}) => state;
-const incomeAllocation = (state = {}) => state;
+const incomeExpenses = (state = {}, action) => {
+  switch (action.type) {
+    case "LOAD_USER_EXPENSES":
+      return action.value;
+    default:
+      return state;
+  }
+};
+
+const incomeAllocation = (state = {}, action) => {
+  switch (action.type) {
+    case "LOAD_USER_ALLOCATION":
+      return action.value;
+    default:
+      return state;
+  }
+};
+
+// const incomeExpenses = (state = {}) => state;
+// const incomeAllocation = (state = {}) => state;
 
 export default combineReducers({ biz, user, incomeExpenses, incomeAllocation });

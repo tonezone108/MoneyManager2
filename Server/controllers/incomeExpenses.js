@@ -12,7 +12,7 @@ const getAllEntries = (req, res) => {
 };
 
 const getEntryById = (req, res) => {
-  let sql = "SELECT * FROM incomeExpenses WHERE expensesId = ?";
+  let sql = "SELECT * FROM incomeExpenses WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
 
   pool.query(sql, (err, rows) => {

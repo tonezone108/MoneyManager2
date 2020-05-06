@@ -24,6 +24,24 @@ class App extends Component {
     this.setState(state);
   };
 
+  getExpenses = (e) => {
+    e.preventDefault();
+
+    const userObject = {
+      userName: this.state.userName,
+    };
+    this.props.getUserExpenses(userObject);
+  };
+
+  getAllocation = (e) => {
+    e.preventDefault();
+
+    const userObject = {
+      userName: this.state.userName,
+    };
+    this.props.getUserExpenses(userObject);
+  };
+
   login = (e) => {
     e.preventDefault();
     // this needs to finish before running the next piece type async, to create await for a certain line  google async await  document.cookie = "loggedIn=true;max-age=20*1000";
@@ -70,7 +88,10 @@ class App extends Component {
       <div className="App">
         <Container maxWidth="sm">
           <h1>Enter credentials to login</h1>
-          <form className="login-form" onSubmit={this.login}>
+          <form
+            className="login-form"
+            onSubmit={this.login} //, this.getExpenses, this.getAllocation  <-- Put these into the onSubmit
+          >
             <TextField
               required
               onChange={this.handleTextChange}

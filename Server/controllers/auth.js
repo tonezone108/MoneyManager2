@@ -52,8 +52,8 @@ const login = (req, res) => {
       // res.header("Access-Control-Allow-Origin", "*");
       // res.setHeader("Access-Control-Allow-Origin", "*");
       res.json({
-        // msg: "Login successful",
-        // token,
+        msg: "Login successful",
+        token,
         userName: userName,
       });
     });
