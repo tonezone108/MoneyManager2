@@ -4,7 +4,8 @@ import { addAllocation } from "../redux/actions";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addExpense: (incomeAllocation) => dispatch(addAllocation(incomeAllocation)),
+    addAllocation: (incomeAllocation) =>
+      dispatch(addAllocation(incomeAllocation)),
   };
 };
 

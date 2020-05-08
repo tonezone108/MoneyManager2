@@ -39,7 +39,7 @@ class App extends Component {
     const userObject = {
       userName: this.state.userName,
     };
-    this.props.getUserExpenses(userObject);
+    this.props.getUserAllocation(userObject);
   };
 
   login = (e) => {
@@ -140,9 +140,8 @@ class App extends Component {
                   <TextField
                     id="userName"
                     placeholder="User Name"
-                    value={this.state.name}
-                    onChange={this.handleTextChange}
                     value={this.state.userName}
+                    onChange={this.handleTextChange}
                     name="userName"
                     label="Name"
                     type="text"

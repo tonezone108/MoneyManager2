@@ -1,23 +1,11 @@
 import React from "react";
-import {
-  Container,
-  Paper,
-  Chip,
-  Table,
-  TableHead,
-  TableRow,
-  TableContainer,
-  TableCell,
-  TableBody
-} from "@material-ui/core";
+import { Container } from "@material-ui/core";
 //import cars from '../cars.json' // remove this
 
-const Biz = props => {
+const Biz = (props) => {
   const id = props.match.params.id;
-  {
-    /* Change cars to props.cars and remove the cars.json import above */
-  }
-  const biz = props.biz.find(c => c.id == id);
+
+  const biz = props.biz.find((c) => c.id === id);
 
   return (
     <Container maxWidth="sm" key={biz.id}>

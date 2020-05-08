@@ -86,22 +86,29 @@ const logoutUser = (User) => {
 };
 ////
 const getUserExpenses = (User) => {
+  console.log("ACTIONS getUserExpense", User);
   return function (dispatch) {
-    fetch("http://localhost:4001/entry/", {
+    fetch(`http://localhost:4001/expenses/${User.userName}`, {
       method: "GET",
-      body: JSON.stringify(User),
+      // body: JSON.stringify(User),
+
       headers: {
+        "authorization": `${User.token}`,
         "Content-Type": "application/json",
+
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
-      .then((res) =>
-        res.json().then((data) => {
-          console.log("THIS THE DATA?", data);
+      .then((res) => {
+        console.log("ACTIONS res", res);
+        res.json();
+      })
+      .then((data) => {
+        console.log("THIS THE DATA?", data);
 
-          dispatch(userExpensesLoaded(data));
-        })
-      )
+        dispatch(userExpensesLoaded(data));
+      })
+
       // .then((results) => console.log("results", results))
 
       .catch((error) => {
@@ -124,11 +131,12 @@ const userExpensesLoaded = (data) => {
 
 const getUserAllocation = (User) => {
   return function (dispatch) {
-    fetch("http://localhost:4001/allocation", {
+    fetch(`http://localhost:4001/allocation/${User}`, {
       method: "GET",
-      body: JSON.stringify(User),
+      // body: JSON.stringify(User),
       headers: {
         "Content-Type": "application/json",
+        "authorization": `${User.token}`,
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
@@ -189,6 +197,110 @@ const addAllocation = (incomeAllocation) => {
   };
 };
 
+const createExpense = (incomeExpenses) => {
+  //HOW TO USE?
+  return function (dispatch) {
+    fetch("http://localhost:4001/expenses/userName", {
+      //userName needs to go here
+      method: "PUT",
+      body: JSON.stringify(incomeExpenses),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((res) =>
+        res.json().then((data) => {
+          console.log("THIS THE DATA?" + data);
+          dispatch(addExpense(incomeExpenses));
+        })
+      )
+      .catch((error) => {
+        fetch("http://localhost:4001/expenses", {
+          //userName needs to go here
+          method: "POST",
+          body: JSON.stringify(incomeExpenses),
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+          .then((res) =>
+            res.json().then((data) => {
+              console.log("THIS THE DATA?" + data);
+              dispatch(addExpense(incomeExpenses));
+            })
+          )
+          .catch((error) => {
+            console.log("THIS IS THE ERROR : " + error);
+            return {
+              type: "error",
+              value: error,
+            };
+          });
+
+        console.log("THIS IS THE ERROR : " + error);
+        return {
+          type: "error",
+          value: error,
+        };
+      });
+    console.log(incomeExpenses, "IS THE incomeExpense Here?");
+  };
+};
+
+const createAllocation = (incomeAllocation) => {
+  //HOW TO USE?
+  return function (dispatch) {
+    fetch("http://localhost:4001/expenses/userName", {
+      //userName needs to go here
+      method: "PUT",
+      body: JSON.stringify(incomeAllocation),
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((res) =>
+        res.json().then((data) => {
+          console.log("THIS THE DATA?" + data);
+          dispatch(addAllocation(incomeAllocation));
+        })
+      )
+      .catch((error) => {
+        fetch("http://localhost:4001/expenses", {
+          //userName needs to go here
+          method: "POST",
+          body: JSON.stringify(incomeAllocation),
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+          .then((res) =>
+            res.json().then((data) => {
+              console.log("THIS THE DATA?" + data);
+              dispatch(addExpense(incomeAllocation));
+            })
+          )
+          .catch((error) => {
+            console.log("THIS IS THE ERROR : " + error);
+            return {
+              type: "error",
+              value: error,
+            };
+          });
+
+        console.log("THIS IS THE ERROR : " + error);
+        return {
+          type: "error",
+          value: error,
+        };
+      });
+    console.log(incomeAllocation, "IS THE incomeAllocation Here?");
+  };
+};
+
 export {
   loginUser,
   logoutUser,
@@ -199,4 +311,5 @@ export {
   getUserAllocation,
   addExpense,
   addAllocation,
+  createExpense,
 };

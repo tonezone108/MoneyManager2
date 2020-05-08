@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import Dashboard from "../components/Dashboard";
-import { removeBiz } from "../redux/actions";
+import {
+  removeBiz,
+  getUserExpenses,
+  getUserAllocation,
+} from "../redux/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +18,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeBiz: (index) => dispatch(removeBiz(index)),
+    getUserExpenses: (userName) => dispatch(getUserExpenses(userName)),
+    getUserAllocation: (userName) => dispatch(getUserAllocation(userName)),
   };
 };
 

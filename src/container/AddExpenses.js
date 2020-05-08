@@ -1,11 +1,23 @@
 import { connect } from "react-redux";
 import AddExpenses from "../components/AddExpenses";
-import { addExpense } from "../redux/actions";
+import { createExpense } from "../redux/actions";
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
+  // return { user: state.user }
+  const { user } = state;
   return {
-    addExpense: (incomeExpenses) => dispatch(addExpense(incomeExpenses)),
+    user,
+  };
+  const { incomeExpenses } = state;
+  return {
+    incomeExpenses,
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddExpenses);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createExpense: (incomeExpenses) => dispatch(createExpense(incomeExpenses)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddExpenses);

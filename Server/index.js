@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
   res.header("Content-Type", "application/json");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, authorization"
   );
   next();
 });
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(logger);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
-app.use("/entry", incomeExpensesRouter);
+app.use("/expenses", incomeExpensesRouter);
 app.use("/allocation", incomeAllocationRouter);
 
 app.get("/", (req, res) => {

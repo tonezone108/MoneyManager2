@@ -73,7 +73,7 @@ const updateEntryById = (req, res) => {
     remainingIncome,
   } = req.body;
   let sql =
-    "UPDATE incomeExpenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE expensesId = ? ";
+    "UPDATE incomeExpenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE userName = ? ";
   sql = mysql.format(sql, [
     regularIncome,
     taxes,

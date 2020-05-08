@@ -34,7 +34,7 @@ class AddExpenses extends Component {
     console.log("THE Expense", payload);
     // add this.props.addCar function here
     // also add this.setState to close the dialog
-    this.props.addExpense(payload);
+    this.props.createExpense(payload);
     this.setState({ open: false });
   };
 

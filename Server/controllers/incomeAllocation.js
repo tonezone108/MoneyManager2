@@ -67,7 +67,7 @@ const updateAllocationById = (req, res) => {
     luxuries,
   } = req.body;
   let sql =
-    "UPDATE incomeAllocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE allocationId = ?";
+    "UPDATE incomeAllocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE userName = ?";
   sql = mysql.format(sql, [
     earnedIncome,
     savings,

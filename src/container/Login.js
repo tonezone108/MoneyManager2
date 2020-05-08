@@ -28,9 +28,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     loginUser: (user) => dispatch(loginUser(user)),
     addUser: (user) => dispatch(addUser(user)),
-    getUserExpenses: (incomeExpenses) =>
-      dispatch(getUserExpenses(incomeExpenses)),
-    getUserAllocation: (incomeAllocation) => dispatch(incomeAllocation),
+    // getUserExpenses: (incomeExpenses) =>
+    //   dispatch(getUserExpenses(incomeExpenses)),
+    // getUserAllocation: (incomeAllocation) => dispatch(incomeAllocation),
   };
 };
 

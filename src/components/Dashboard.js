@@ -1,16 +1,5 @@
 import React, { Component } from "react";
 import {
-  Grid,
-  Switch,
-  Slider,
-  MenuItem,
-  Select,
-  InputLabel,
-  Typography,
-  Card,
-  CardActions,
-  CardContent,
-  makeStyles,
   Table,
   TableHead,
   TableRow,
@@ -18,7 +7,6 @@ import {
   TableBody,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import DeleteIcon from "@material-ui/icons/Delete";
 import AddBiz from "../container/AddBiz";
 import AddExpenses from "../container/AddExpenses";
 import AddAllocation from "../container/AddAllocation";
@@ -26,6 +14,8 @@ import AddAllocation from "../container/AddAllocation";
 class Dashboard extends Component {
   componentDidMount() {
     //call the load user data action here
+    this.props.getUserExpenses(this.props.user);
+    this.props.getUserAllocation(this.props.user);
   }
 
   render() {
@@ -33,45 +23,6 @@ class Dashboard extends Component {
     return (
       <div>
         <div>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell align="left">Name</TableCell>
-                <TableCell align="left">Description</TableCell>
-                <TableCell align="left">Hours</TableCell>
-                <TableCell align="left">Address</TableCell>
-                <TableCell align="left">
-                  {this.props.user.userName && (
-                    <AddBiz bizTotal={this.props.biz.length} />
-                  )}
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            {this.props.biz.map((biz, index) => (
-              <TableBody>
-                <TableRow key={biz.id}>
-                  <TableCell align="left">
-                    <Link to={`/biz/${biz.id}`}>{biz.name}</Link>
-                  </TableCell>
-                  <TableCell align="left">{biz.description}</TableCell>
-                  <TableCell align="left">{biz.hours}</TableCell>
-                  <TableCell align="left">{biz.address}</TableCell>
-
-                  <TableCell align="left">
-                    {this.props.user.userName && (
-                      <button onClick={() => this.props.removeBiz(index)}>
-                        DELETE
-                      </button>
-                    )}
-                  </TableCell>
-                </TableRow>
-                {/*  */}
-              </TableBody>
-            ))}
-          </Table>
-
-          <br />
-
           <Table>
             <TableHead>
               <h1>Income and Expenses</h1>
