@@ -20,6 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddBiz from "../container/AddBiz";
+import AddExpenses from "../container/AddExpenses";
+import AddAllocation from "../container/AddAllocation";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -131,7 +133,16 @@ class Dashboard extends Component {
             </TableBody>
 
             <TableRow align="left">
-              <p>Remaining Income : $xxxx</p> <button>Add Expenses </button>
+              <p>
+                Remaining Income : $
+                {this.props.incomeExpenses.RegularIncome -
+                  this.props.incomeExpenses.Taxes -
+                  this.props.incomeExpenses.Insurance -
+                  this.props.incomeExpenses.Debts -
+                  this.props.incomeExpenses.Housing -
+                  this.props.incomeExpenses.Investing}{" "}
+              </p>{" "}
+              <AddExpenses />
             </TableRow>
 
             <br />
@@ -184,8 +195,15 @@ class Dashboard extends Component {
               </TableCell>
             </TableBody>
             <TableRow align="left">
-              <p>Remaining Savings : $xxxx</p>{" "}
-              <button>Create Allocation</button>
+              <p>
+                Remaining Savings : $
+                {this.props.incomeAllocation.EarnedIncome -
+                  this.props.incomeAllocation.Groceries -
+                  this.props.incomeAllocation.Transport -
+                  this.props.incomeAllocation.Leisure -
+                  this.props.incomeAllocation.Luxuries}
+              </p>{" "}
+              <AddAllocation />
             </TableRow>
           </Table>
           {/* <a id="login/logout" href="/Login">

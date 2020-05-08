@@ -175,6 +175,20 @@ const addBiz = (biz) => {
   };
 };
 
+const addExpense = (incomeExpenses) => {
+  return {
+    type: "ADD_USER_EXPENSE",
+    value: incomeExpenses,
+  };
+};
+
+const addAllocation = (incomeAllocation) => {
+  return {
+    type: "ADD_USER_ALLOCATION",
+    value: incomeAllocation,
+  };
+};
+
 export {
   loginUser,
   logoutUser,
@@ -183,4 +197,6 @@ export {
   addUser,
   getUserExpenses,
   getUserAllocation,
+  addExpense,
+  addAllocation,
 };

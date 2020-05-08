@@ -31,6 +31,8 @@ const incomeExpenses = (state = {}, action) => {
   switch (action.type) {
     case "LOAD_USER_EXPENSES":
       return action.value;
+    case "ADD_USER_EXPENSES":
+      return [...state, action.value];
     default:
       return state;
   }
@@ -40,6 +42,8 @@ const incomeAllocation = (state = {}, action) => {
   switch (action.type) {
     case "LOAD_USER_ALLOCATION":
       return action.value;
+    case "ADD_USER_ALLOCATION":
+      return [...state, action.value];
     default:
       return state;
   }
