@@ -131,7 +131,7 @@ const userExpensesLoaded = (data) => {
 
 const getUserAllocation = (User) => {
   return function (dispatch) {
-    fetch(`http://localhost:4001/allocation/${User}`, {
+    fetch(`http://localhost:4001/allocation/${User.userName}`, {
       method: "GET",
       // body: JSON.stringify(User),
       headers: {
