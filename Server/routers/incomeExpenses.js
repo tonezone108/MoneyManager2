@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", authenticate, incomeExpenses.getAllEntries);
 
-router.get("/:id", authenticate, incomeExpenses.getEntryById);
+router.get("/:id", incomeExpenses.getEntryById);
 
 router.post("/", authenticate, incomeExpenses.createEntry);
 

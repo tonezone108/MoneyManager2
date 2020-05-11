@@ -39,6 +39,7 @@ const incomeExpenses = (state = {}, action) => {
 };
 
 const incomeAllocation = (state = {}, action) => {
+  console.log(action, "This is income allocation action");
   switch (action.type) {
     case "LOAD_USER_ALLOCATION":
       return action.value;

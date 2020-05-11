@@ -24,23 +24,23 @@ class App extends Component {
     this.setState(state);
   };
 
-  getExpenses = (e) => {
-    e.preventDefault();
+  // getExpenses = (e) => {
+  //   e.preventDefault();
 
-    const userObject = {
-      userName: this.state.userName,
-    };
-    this.props.getUserExpenses(userObject);
-  };
+  //   const userObject = {
+  //     userName: this.state.userName,
+  //   };
+  //   this.props.getUserExpenses(userObject);
+  // };
 
-  getAllocation = (e) => {
-    e.preventDefault();
+  // getAllocation = (e) => {
+  //   e.preventDefault();
 
-    const userObject = {
-      userName: this.state.userName,
-    };
-    this.props.getUserAllocation(userObject);
-  };
+  //   const userObject = {
+  //     userName: this.state.userName,
+  //   };
+  //   this.props.getUserAllocation(userObject);
+  // };
 
   login = (e) => {
     e.preventDefault();

@@ -12,12 +12,14 @@ const getAllEntries = (req, res) => {
 };
 
 const getEntryById = (req, res) => {
-  let sql = "SELECT * FROM incomeExpenses WHERE userName = ?";
+  let sql =
+    "SELECT regularIncome, taxes, insurance, debts, housing, investing, remainingIncome FROM incomeExpenses WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
-    return res.json(rows);
+    console.log(rows, "incomeExpenses Rows");
+    return res.json(rows[0]);
   });
 };
 

@@ -10,12 +10,14 @@ const getAllAllocations = (req, res) => {
 };
 
 const getAllocationById = (req, res) => {
-  let sql = "SELECT * FROM incomeAllocation WHERE userName = ?";
+  let sql =
+    "SELECT earnedIncome, savings, groceries, transport, leisure, luxuries FROM incomeAllocation WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
-
+  console.log(req.params.id, "This is incomeAllocaiton username");
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
-    return res.json(rows);
+    console.log(rows, "incomeAllocation Rows");
+    return res.json(rows[0]);
   });
 };
 

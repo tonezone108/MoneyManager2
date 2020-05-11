@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", authenticate, incomeAllocationController.getAllAllocations);
 
-router.get("/:id", authenticate, incomeAllocationController.getAllocationById);
+router.get("/:id", incomeAllocationController.getAllocationById);
 
 router.post("/", authenticate, incomeAllocationController.createAllocation);
 

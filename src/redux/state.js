@@ -29,19 +29,19 @@ export default {
   ],
 
   incomeExpenses: {
-    RegularIncome: 0.0,
-    Taxes: 0.0,
-    Insurance: 0.0,
-    Debts: 0.0,
-    Housing: 0.0,
-    Investing: 0.0,
+    regularIncome: 0.0,
+    taxes: 0.0,
+    insurance: 0.0,
+    debts: 0.0,
+    housing: 0.0,
+    investing: 0.0,
   },
 
   incomeAllocation: {
-    EarnedIncome: 0.0,
-    Groceries: 0.0,
-    Transport: 0.0,
-    Leisure: 0.0,
-    Luxuries: 0.0,
+    earnedIncome: 0.0,
+    groceries: 0.0,
+    transport: 0.0,
+    leisure: 0.0,
+    luxuries: 0.0,
   },
 };

@@ -36,7 +36,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>RegularIncome</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.RegularIncome}
+                      : {this.props.incomeExpenses.regularIncome}
                     </b>
                   </p>
                 </TableRow>
@@ -44,7 +44,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Taxes</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.Taxes}
+                      : {this.props.incomeExpenses.taxes}
                     </b>
                   </p>
                 </TableRow>
@@ -52,7 +52,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Insurance</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.Insurance}
+                      : {this.props.incomeExpenses.insurance}
                     </b>
                   </p>
                 </TableRow>
@@ -60,7 +60,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Debts</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.Debts}
+                      : {this.props.incomeExpenses.debts}
                     </b>
                   </p>
                 </TableRow>
@@ -68,7 +68,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Housing</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.Housing}
+                      : {this.props.incomeExpenses.housing}
                     </b>
                   </p>
                 </TableRow>
@@ -76,7 +76,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Investing</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeExpenses.Investing}
+                      : {this.props.incomeExpenses.investing}
                     </b>
                   </p>
                 </TableRow>
@@ -86,12 +86,12 @@ class Dashboard extends Component {
             <TableRow align="left">
               <p>
                 Remaining Income : $
-                {this.props.incomeExpenses.RegularIncome -
-                  this.props.incomeExpenses.Taxes -
-                  this.props.incomeExpenses.Insurance -
-                  this.props.incomeExpenses.Debts -
-                  this.props.incomeExpenses.Housing -
-                  this.props.incomeExpenses.Investing}{" "}
+                {this.props.incomeExpenses.regularIncome -
+                  this.props.incomeExpenses.taxes -
+                  this.props.incomeExpenses.insurance -
+                  this.props.incomeExpenses.debts -
+                  this.props.incomeExpenses.housing -
+                  this.props.incomeExpenses.investing}{" "}
               </p>{" "}
               <AddExpenses />
             </TableRow>
@@ -106,7 +106,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Earned Income</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeAllocation.EarnedIncome}
+                      : {this.props.incomeAllocation.earnedIncome}
                     </b>
                   </p>
                 </TableRow>
@@ -115,7 +115,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Groceries</b>{" "}
                     <b style={{ align: "right" }}>
-                      {this.props.incomeAllocation.Groceries}
+                      {this.props.incomeAllocation.groceries}
                     </b>
                   </p>
                 </TableRow>
@@ -123,7 +123,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Transport</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeAllocation.Transport}
+                      : {this.props.incomeAllocation.transport}
                     </b>
                   </p>
                 </TableRow>
@@ -131,7 +131,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Leisure</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeAllocation.Leisure}
+                      : {this.props.incomeAllocation.leisure}
                     </b>
                   </p>
                 </TableRow>
@@ -139,7 +139,7 @@ class Dashboard extends Component {
                   <p style={{ paddingLeft: 60 }}>
                     <b>Luxuries</b>{" "}
                     <b style={{ align: "right" }}>
-                      : {this.props.incomeAllocation.Luxuries}
+                      : {this.props.incomeAllocation.luxuries}
                     </b>
                   </p>
                 </TableRow>
@@ -148,11 +148,11 @@ class Dashboard extends Component {
             <TableRow align="left">
               <p>
                 Remaining Savings : $
-                {this.props.incomeAllocation.EarnedIncome -
-                  this.props.incomeAllocation.Groceries -
-                  this.props.incomeAllocation.Transport -
-                  this.props.incomeAllocation.Leisure -
-                  this.props.incomeAllocation.Luxuries}
+                {this.props.incomeAllocation.earnedIncome -
+                  this.props.incomeAllocation.groceries -
+                  this.props.incomeAllocation.transport -
+                  this.props.incomeAllocation.leisure -
+                  this.props.incomeAllocation.luxuries}
               </p>{" "}
               <AddAllocation />
             </TableRow>

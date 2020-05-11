@@ -101,7 +101,7 @@ const getUserExpenses = (User) => {
     })
       .then((res) => {
         console.log("ACTIONS res", res);
-        res.json();
+        return res.json();
       })
       .then((data) => {
         console.log("THIS THE DATA?", data);
@@ -135,18 +135,19 @@ const getUserAllocation = (User) => {
       method: "GET",
       // body: JSON.stringify(User),
       headers: {
-        "Content-Type": "application/json",
         "authorization": `${User.token}`,
+        "Content-Type": "application/json",
+
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
-      .then((res) =>
-        res.json().then((data) => {
-          console.log("THIS THE DATA?", data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("THIS THE DATA?", data);
 
-          dispatch(userAllocationLoaded(data));
-        })
-      )
+        dispatch(userAllocationLoaded(data));
+      })
+
       // .then((results) => console.log("results", results))
 
       .catch((error) => {
@@ -161,6 +162,7 @@ const getUserAllocation = (User) => {
 };
 
 const userAllocationLoaded = (data) => {
+  console.log(data, "userAllocationLoaded data");
   return {
     type: "LOAD_USER_ALLOCATION",
     value: data,
@@ -185,7 +187,7 @@ const addBiz = (biz) => {
 
 const addExpense = (incomeExpenses) => {
   return {
-    type: "ADD_USER_EXPENSE",
+    type: "ADD_USER_EXPENSES",
     value: incomeExpenses,
   };
 };
@@ -197,15 +199,16 @@ const addAllocation = (incomeAllocation) => {
   };
 };
 
-const createExpense = (incomeExpenses) => {
+const createExpense = (incomeExpenses, User) => {
   //HOW TO USE?
   return function (dispatch) {
-    fetch("http://localhost:4001/expenses/userName", {
+    fetch(`http://localhost:4001/expenses/${User}`, {
       //userName needs to go here
       method: "PUT",
       body: JSON.stringify(incomeExpenses),
       headers: {
         "Content-Type": "application/json",
+        "authorization": `${User.token}`,
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
@@ -222,6 +225,7 @@ const createExpense = (incomeExpenses) => {
           body: JSON.stringify(incomeExpenses),
           headers: {
             "Content-Type": "application/json",
+            "authorization": `${User.token}`,
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
         })
