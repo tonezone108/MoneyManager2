@@ -4,19 +4,21 @@ import { createExpense } from "../redux/actions";
 
 const mapStateToProps = (state) => {
   // return { user: state.user }
-  const { user } = state;
+  // const { user } = state;
   return {
-    user,
+    user: state.user,
+    incomeExpenses: state.incomeExpenses,
   };
-  const { incomeExpenses } = state;
-  return {
-    incomeExpenses,
-  };
+  // return {};
+  // const { incomeExpenses } = state;
+  // return {
+  //   incomeExpenses,
+  // };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createExpense: (incomeExpenses) => dispatch(createExpense(incomeExpenses)),
+    createExpense: (userName) => dispatch(createExpense(userName)),
   };
 };
 

@@ -10,12 +10,13 @@ import {
 class AddExpenses extends Component {
   state = {
     open: false,
-    RegularIncome: "",
-    Taxes: "",
-    Insurance: "",
-    Debts: "",
-    Housing: "",
-    Investing: "",
+    regularIncome: "",
+    taxes: "",
+    insurance: "",
+    debts: "",
+    housing: "",
+    investing: "",
+    userName: "",
   };
 
   toggleDialog = () => this.setState({ open: !this.state.open });
@@ -41,12 +42,13 @@ class AddExpenses extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.open !== this.state.open) {
       this.setState({
-        RegularIncome: "",
-        Taxes: "",
-        Insurance: "",
-        Debts: "",
-        Housing: "",
-        Investing: "",
+        regularIncome: "",
+        taxes: "",
+        insurance: "",
+        debts: "",
+        housing: "",
+        investing: "",
+        userName: this.props.user.userName,
       });
     }
   };
@@ -76,47 +78,48 @@ class AddExpenses extends Component {
                 }}
               >
                 <TextField
-                  id="RegularIncome"
+                  id="regularIncome"
                   placeholder="RegularIncome"
-                  value={this.state.RegularIncome}
+                  value={this.state.regularIncome}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Taxes"
+                  id="taxes"
                   placeholder="Taxes"
-                  value={this.state.Taxes}
+                  value={this.state.taxes}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Insurance"
+                  id="insurance"
                   placeholder="Insurance"
-                  value={this.state.Insurance}
+                  value={this.state.insurance}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Debts"
+                  id="debts"
                   placeholder="Debts"
-                  value={this.state.Debts}
+                  value={this.state.debts}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Housing"
+                  id="housing"
                   placeholder="Housing"
-                  value={this.state.Housing}
+                  value={this.state.housing}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Investing"
+                  id="investing"
                   placeholder="Investing"
-                  value={this.state.Investing}
+                  value={this.state.investing}
                   onChange={this.handleTextChange}
                   required
                 />
+
                 <br />
                 <Button variant="contained" color="primary" type="submit">
                   Submit

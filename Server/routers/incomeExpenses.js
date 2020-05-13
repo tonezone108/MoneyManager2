@@ -7,9 +7,9 @@ router.get("/", authenticate, incomeExpenses.getAllEntries);
 
 router.get("/:id", incomeExpenses.getEntryById);
 
-router.post("/", authenticate, incomeExpenses.createEntry);
+router.post("/", incomeExpenses.createEntry);
 
-router.put("/:id", authenticate, incomeExpenses.updateEntryById);
+router.put("/:id", incomeExpenses.updateEntryById);
 
 router.delete(
   "/:expensesId",

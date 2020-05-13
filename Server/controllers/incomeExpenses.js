@@ -73,6 +73,7 @@ const updateEntryById = (req, res) => {
     housing,
     investing,
     remainingIncome,
+    userName,
   } = req.body;
   let sql =
     "UPDATE incomeExpenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE userName = ? ";
@@ -84,6 +85,7 @@ const updateEntryById = (req, res) => {
     housing,
     investing,
     remainingIncome,
+    userName,
     req.params.id,
   ]);
 
