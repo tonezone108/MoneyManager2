@@ -207,6 +207,7 @@ const createExpense = (incomeExpenses) => {
       method: "PUT",
       body: JSON.stringify(incomeExpenses),
       headers: {
+        // "access-control-allow-methods": "PUT",
         "authorization": `${incomeExpenses.token}`,
         "Content-Type": "application/json",
 

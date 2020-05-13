@@ -73,7 +73,7 @@ class App extends Component {
 
     if (this.props.user.userName !== "") {
       console.log("THIS IS THE RESPONSE " + this.props.user.userName);
-      document.cookie = "loggedIn=true;max-age=20*1000";
+      document.cookie = "loggedIn=true;max-age=600*1000";
       this.setState({ redirect: true }); //leave this alone.
     } else {
       console.log(this.props.user.userName);
