@@ -14,9 +14,9 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <BrowserRouter>
-            <AppBar style={{ background: "gray" }} position="staic">
+            <AppBar style={{ background: "green" }} position="staic">
               <Toolbar>
-                <h1>Money Manager App (Under Construction)</h1>
+                <h1>Money Manager App </h1>
               </Toolbar>
               <div align="left">
                 <a href="/">

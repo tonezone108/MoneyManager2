@@ -290,7 +290,7 @@ const createAllocation = (incomeAllocation) => {
           .then((res) =>
             res.json().then((data) => {
               console.log("THIS THE DATA?" + data);
-              dispatch(addExpense(incomeAllocation));
+              dispatch(addAllocation(incomeAllocation));
             })
           )
           .catch((error) => {
