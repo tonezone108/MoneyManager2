@@ -67,6 +67,7 @@ const updateAllocationById = (req, res) => {
     transport,
     leisure,
     luxuries,
+    userName,
   } = req.body;
   let sql =
     "UPDATE incomeAllocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE userName = ?";
@@ -78,6 +79,7 @@ const updateAllocationById = (req, res) => {
     leisure,
     luxuries,
     req.params.id,
+    userName,
   ]);
 
   pool.query(sql, (err, results) => {

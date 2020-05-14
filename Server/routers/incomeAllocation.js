@@ -7,13 +7,9 @@ router.get("/", authenticate, incomeAllocationController.getAllAllocations);
 
 router.get("/:id", incomeAllocationController.getAllocationById);
 
-router.post("/", authenticate, incomeAllocationController.createAllocation);
+router.post("/", incomeAllocationController.createAllocation);
 
-router.put(
-  "/:id",
-  authenticate,
-  incomeAllocationController.updateAllocationById
-);
+router.put("/:id", incomeAllocationController.updateAllocationById);
 
 router.delete(
   "/:userName",

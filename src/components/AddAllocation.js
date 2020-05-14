@@ -15,6 +15,7 @@ class AddAllocation extends Component {
     Transport: "",
     Leisure: "",
     Luxuries: "",
+    userName: "",
   };
 
   toggleDialog = () => this.setState({ open: !this.state.open });
@@ -33,7 +34,7 @@ class AddAllocation extends Component {
     console.log("THE Allocation", payload);
     // add this.props.addCar function here
     // also add this.setState to close the dialog
-    this.props.addAllocation(payload);
+    this.props.createAllocation(payload);
     this.setState({ open: false });
   };
 
@@ -45,6 +46,7 @@ class AddAllocation extends Component {
         Transport: "",
         Leisure: "",
         Luxuries: "",
+        userName: this.props.user.userName,
       });
     }
   };
@@ -74,37 +76,37 @@ class AddAllocation extends Component {
                 }}
               >
                 <TextField
-                  id="EarnedIncome"
+                  id="earnedIncome"
                   placeholder="EarnedIncome"
-                  value={this.state.EarnedIncome}
+                  value={this.state.earnedIncome}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Groceries"
+                  id="groceries"
                   placeholder="Groceries"
-                  value={this.state.Groceries}
+                  value={this.state.groceries}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Transport"
+                  id="transport"
                   placeholder="Transport"
-                  value={this.state.Transport}
+                  value={this.state.transport}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Leisure"
+                  id="leisure"
                   placeholder="Leisure"
-                  value={this.state.Leisure}
+                  value={this.state.leisure}
                   onChange={this.handleTextChange}
                   required
                 />
                 <TextField
-                  id="Luxuries"
+                  id="luxuries"
                   placeholder="Luxuries"
-                  value={this.state.Luxuries}
+                  value={this.state.luxuries}
                   onChange={this.handleTextChange}
                   required
                 />

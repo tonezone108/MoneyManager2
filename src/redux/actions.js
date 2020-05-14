@@ -259,12 +259,14 @@ const createExpense = (incomeExpenses) => {
 const createAllocation = (incomeAllocation) => {
   //HOW TO USE?
   return function (dispatch) {
-    fetch("http://localhost:4001/expenses/userName", {
+    fetch(`http://localhost:4001/allocation/${incomeAllocation.userName}`, {
       //userName needs to go here
       method: "PUT",
       body: JSON.stringify(incomeAllocation),
       headers: {
+        "authorization": `${incomeAllocation.token}`,
         "Content-Type": "application/json",
+
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
@@ -275,11 +277,12 @@ const createAllocation = (incomeAllocation) => {
         })
       )
       .catch((error) => {
-        fetch("http://localhost:4001/expenses", {
+        fetch("http://localhost:4001/allocation", {
           //userName needs to go here
           method: "POST",
           body: JSON.stringify(incomeAllocation),
           headers: {
+            "authorization": `${incomeAllocation.token}`,
             "Content-Type": "application/json",
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
@@ -319,4 +322,5 @@ export {
   addExpense,
   addAllocation,
   createExpense,
+  createAllocation,
 };

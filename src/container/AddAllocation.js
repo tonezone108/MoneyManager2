@@ -1,12 +1,18 @@
 import { connect } from "react-redux";
 import AddAllocation from "../components/AddAllocation";
-import { addAllocation } from "../redux/actions";
+import { createAllocation } from "../redux/actions";
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    addAllocation: (incomeAllocation) =>
-      dispatch(addAllocation(incomeAllocation)),
+    user: state.user,
+    incomeAllocation: state.incomeAllocation,
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddAllocation);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createAllocation: (userName) => dispatch(createAllocation(userName)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddAllocation);
