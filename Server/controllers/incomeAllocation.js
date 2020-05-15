@@ -13,10 +13,8 @@ const getAllocationById = (req, res) => {
   let sql =
     "SELECT earnedIncome, savings, groceries, transport, leisure, luxuries FROM incomeAllocation WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
-  console.log(req.params.id, "This is incomeAllocaiton username");
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
-    console.log(rows, "incomeAllocation Rows");
     return res.json(rows[0]);
   });
 };
@@ -49,16 +47,6 @@ const createAllocation = (req, res) => {
   });
 };
 
-// const updateUserById = (req, res) => {
-//   const { firstName, lastName } = req.body;
-//   let sql = "UPDATE users SET first_name = ?, last_name = ? WHERE id = ?";
-//   sql = mysql.format(sql, [firstName, lastName, req.params.id]);
-
-//   pool.query(sql, (err, results) => {
-//     if (err) return handleSQLError(res, err);
-//     return res.status(204).json();
-//   });
-// };
 const updateAllocationById = (req, res) => {
   const {
     earnedIncome,

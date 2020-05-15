@@ -26,7 +26,6 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
-  console.log("In controller", req.body);
   const { userName, userPassword } = req.body;
   let sql = "SELECT * FROM users WHERE userName = ?";
   sql = mysql.format(sql, [userName]);
@@ -47,10 +46,7 @@ const login = (req, res) => {
       data.userPassword = "REDACTED";
 
       const token = jwt.sign(data, "secret");
-      //CORS?
 
-      // res.header("Access-Control-Allow-Origin", "*");
-      // res.setHeader("Access-Control-Allow-Origin", "*");
       res.json({
         msg: "Login successful",
         token,

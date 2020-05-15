@@ -29,11 +29,9 @@ class AddAllocation extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const payload = { ...this.state };
-    // payload.id = this.props.bizTotal + 1;
+
     delete payload.open;
-    console.log("THE Allocation", payload);
-    // add this.props.addCar function here
-    // also add this.setState to close the dialog
+
     this.props.createAllocation(payload);
     this.setState({ open: false });
   };
@@ -61,7 +59,8 @@ class AddAllocation extends Component {
             onClick={this.toggleDialog}
           >
             Add Allocation
-          </Button>
+          </Button>{" "}
+          <p>(Logout & Login to see results)</p>
         </div>
         <div>
           <Dialog open={this.state.open} onClose={this.toggleDialog}>

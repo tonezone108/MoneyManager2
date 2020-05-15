@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 
-// const biz = (state = null) => state;
 const biz = (state = [], action) => {
   switch (action.type) {
     case "ADD_BIZ":
@@ -14,7 +13,6 @@ const biz = (state = [], action) => {
   }
 };
 const user = (state = {}, action) => {
-  console.log(action, "This is reducers action");
   switch (action.type) {
     case "LOGIN":
       return action.value;
@@ -39,7 +37,6 @@ const incomeExpenses = (state = {}, action) => {
 };
 
 const incomeAllocation = (state = {}, action) => {
-  console.log(action, "This is income allocation action");
   switch (action.type) {
     case "LOAD_USER_ALLOCATION":
       return action.value;
@@ -49,8 +46,5 @@ const incomeAllocation = (state = {}, action) => {
       return state;
   }
 };
-
-// const incomeExpenses = (state = {}) => state;
-// const incomeAllocation = (state = {}) => state;
 
 export default combineReducers({ biz, user, incomeExpenses, incomeAllocation });

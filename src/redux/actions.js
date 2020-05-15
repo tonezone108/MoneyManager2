@@ -1,36 +1,24 @@
 const loginUser = (User) => {
-  // console.log(User);
-  // return {
-  //   type: "LOGIN",
-  //   value: User,
-  // };
-
   return function (dispatch) {
     fetch("http://localhost:4001/auth/login", {
       method: "POST",
       body: JSON.stringify(User),
       headers: {
         "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
       .then((res) =>
         res.json().then((data) => {
-          console.log("THIS THE DATA?", data);
-
           dispatch(userLoaded(data));
         })
       )
-      // .then((results) => console.log("results", results))
 
       .catch((error) => {
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(User, "IS THE USER HERE?");
   };
 };
 
@@ -47,20 +35,16 @@ const addUser = (User) => {
     })
       .then((res) =>
         res.json().then((data) => {
-          console.log("THIS THE DATA?" + data);
           dispatch(userAdded(data));
         })
       )
-      // .then((results) => console.log("results", results))
 
       .catch((error) => {
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(User, "IS THE USER HERE?");
   };
 };
 
@@ -86,7 +70,6 @@ const logoutUser = (User) => {
 };
 ////
 const getUserExpenses = (User) => {
-  console.log("ACTIONS getUserExpense", User);
   return function (dispatch) {
     fetch(`http://localhost:4001/expenses/${User.userName}`, {
       method: "GET",
@@ -95,30 +78,21 @@ const getUserExpenses = (User) => {
       headers: {
         "authorization": `${User.token}`,
         "Content-Type": "application/json",
-
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
       .then((res) => {
-        console.log("ACTIONS res", res);
         return res.json();
       })
       .then((data) => {
-        console.log("THIS THE DATA?", data);
-
         dispatch(userExpensesLoaded(data));
       })
 
-      // .then((results) => console.log("results", results))
-
       .catch((error) => {
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(User, "IS THE USER HERE?");
   };
 };
 
@@ -143,26 +117,19 @@ const getUserAllocation = (User) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("THIS THE DATA?", data);
-
         dispatch(userAllocationLoaded(data));
       })
 
-      // .then((results) => console.log("results", results))
-
       .catch((error) => {
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(User, "IS THE USER HERE?");
   };
 };
 
 const userAllocationLoaded = (data) => {
-  console.log(data, "userAllocationLoaded data");
   return {
     type: "LOAD_USER_ALLOCATION",
     value: data,
@@ -216,7 +183,6 @@ const createExpense = (incomeExpenses) => {
     })
       .then((res) =>
         res.json().then((data) => {
-          console.log("THIS THE DATA?" + data);
           dispatch(addExpense(incomeExpenses));
         })
       )
@@ -234,25 +200,21 @@ const createExpense = (incomeExpenses) => {
         })
           .then((res) =>
             res.json().then((data) => {
-              console.log("THIS THE DATA?" + data);
               dispatch(addExpense(incomeExpenses));
             })
           )
           .catch((error) => {
-            console.log("THIS IS THE ERROR : " + error);
             return {
               type: "error",
               value: error,
             };
           });
 
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(incomeExpenses, "IS THE incomeExpense Here?");
   };
 };
 
@@ -272,7 +234,6 @@ const createAllocation = (incomeAllocation) => {
     })
       .then((res) =>
         res.json().then((data) => {
-          console.log("THIS THE DATA?" + data);
           dispatch(addAllocation(incomeAllocation));
         })
       )
@@ -289,25 +250,21 @@ const createAllocation = (incomeAllocation) => {
         })
           .then((res) =>
             res.json().then((data) => {
-              console.log("THIS THE DATA?" + data);
               dispatch(addAllocation(incomeAllocation));
             })
           )
           .catch((error) => {
-            console.log("THIS IS THE ERROR : " + error);
             return {
               type: "error",
               value: error,
             };
           });
 
-        console.log("THIS IS THE ERROR : " + error);
         return {
           type: "error",
           value: error,
         };
       });
-    console.log(incomeAllocation, "IS THE incomeAllocation Here?");
   };
 };
 

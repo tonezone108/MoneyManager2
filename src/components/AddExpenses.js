@@ -30,11 +30,9 @@ class AddExpenses extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const payload = { ...this.state };
-    // payload.id = this.props.bizTotal + 1;
+
     delete payload.open;
-    console.log("THE Expense", payload);
-    // add this.props.addCar function here
-    // also add this.setState to close the dialog
+
     this.props.createExpense(payload);
     this.setState({ open: false });
   };
@@ -63,7 +61,8 @@ class AddExpenses extends Component {
             onClick={this.toggleDialog}
           >
             Add Expenses
-          </Button>
+          </Button>{" "}
+          <p>(Logout & Login to see results)</p>
         </div>
         <div>
           <Dialog open={this.state.open} onClose={this.toggleDialog}>

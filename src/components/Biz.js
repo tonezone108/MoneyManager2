@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "@material-ui/core";
-//import cars from '../cars.json' // remove this
 
 const Biz = (props) => {
   const id = props.match.params.id;

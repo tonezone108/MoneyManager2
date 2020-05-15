@@ -4,7 +4,7 @@ import {
   TextField,
   Dialog,
   DialogContent,
-  DialogTitle
+  DialogTitle,
 } from "@material-ui/core";
 
 class AddBiz extends Component {
@@ -13,25 +13,23 @@ class AddBiz extends Component {
     name: "",
     address: "",
     hours: "",
-    description: ""
+    description: "",
   };
 
   toggleDialog = () => this.setState({ open: !this.state.open });
 
-  handleTextChange = e => {
+  handleTextChange = (e) => {
     const newState = { ...this.state };
     newState[e.target.id] = e.target.value;
     this.setState(newState);
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const payload = { ...this.state };
     payload.id = this.props.bizTotal + 1;
     delete payload.open;
-    console.log("THE BIZ", payload);
-    // add this.props.addCar function here
-    // also add this.setState to close the dialog
+
     this.props.addBiz(payload);
     this.setState({ open: false });
   };
@@ -42,7 +40,7 @@ class AddBiz extends Component {
         name: "",
         address: "",
         hours: "",
-        description: ""
+        description: "",
       });
     }
   };
@@ -69,7 +67,7 @@ class AddBiz extends Component {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  width: "350px"
+                  width: "350px",
                 }}
               >
                 <TextField

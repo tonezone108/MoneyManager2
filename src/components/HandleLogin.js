@@ -7,7 +7,6 @@ const defaultUser = {
 };
 
 const HandleLogin = (props) => {
-  console.log(props, "Is handleLogin working?");
   if (!props.user.userName) {
     return (
       <a href="/login">

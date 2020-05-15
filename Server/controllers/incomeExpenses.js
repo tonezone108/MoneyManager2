@@ -18,21 +18,12 @@ const getEntryById = (req, res) => {
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
-    console.log(rows, "incomeExpenses Rows");
+
     return res.json(rows[0]);
   });
 };
 
 const createEntry = (req, res) => {
-  // INSERT INTO Income&Expenses test entry
-  // let regularIncome = req.body.regularIncome;
-  // let taxes = req.body.taxes;
-  // let insurance = req.body.insurance;
-  // let debts = req.body.debts;
-  // let housing = req.body.housing;
-  // let investing = req.body.investing;
-  // let remainingIncome = req.body.remainingIncome;
-
   const {
     regularIncome,
     taxes,
@@ -94,17 +85,6 @@ const updateEntryById = (req, res) => {
     return res.status(204).json();
   });
 };
-
-// const updateUserById = (req, res) => {
-//   const { firstName, lastName } = req.body;
-//   let sql = "UPDATE users SET first_name = ?, last_name = ? WHERE id = ?";
-//   sql = mysql.format(sql, [firstName, lastName, req.params.id]);
-
-//   pool.query(sql, (err, results) => {
-//     if (err) return handleSQLError(res, err);
-//     return res.status(204).json();
-//   });
-// };
 
 const deleteUserByExpensesId = (req, res) => {
   let sql = "DELETE FROM incomeExpenses WHERE expensesId = ?";

@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const logger = (req, res, next) => {
-  console.log("Logging route:", "/users", new Date().toISOString());
   next();
 };
 
@@ -24,5 +23,5 @@ const authenticate = (req, res, next) => {
 
 module.exports = {
   logger,
-  authenticate
+  authenticate,
 };
