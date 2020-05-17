@@ -15,7 +15,7 @@ class Dashboard extends Component {
     this.props.getUserExpenses(this.props.user);
     this.props.getUserAllocation(this.props.user);
   }
-  //let this go to heroku, let this go to heroku
+  //let this go to heroku, let this go to heroku, let this go to heroku,
   render() {
     return (
       <div>
