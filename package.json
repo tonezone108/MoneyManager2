@@ -56,5 +56,8 @@
   "proxy": "http://localhost:4001",
   "devDependencies": {
     "@babel/plugin-proposal-numeric-separator": "^7.8.3"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.5.5"
   }
 }
