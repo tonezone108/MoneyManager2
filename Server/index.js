@@ -7,7 +7,7 @@ const incomeAllocationRouter = require("./routers/incomeAllocation");
 const { logger } = require("./middleware");
 const app = express();
 const port = process.env.PORT || 4001;
-
+app.use(express.static("public"));
 //is this how we resolve the CORS error?
 
 app.use(function (req, res, next) {
