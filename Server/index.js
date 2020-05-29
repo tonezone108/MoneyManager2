@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const usersRouter = require("./routers/users");
 const authRouter = require("./routers/auth");
 const incomeExpensesRouter = require("./routers/incomeExpenses");
@@ -7,6 +8,7 @@ const incomeAllocationRouter = require("./routers/incomeAllocation");
 const { logger } = require("./middleware");
 const app = express();
 const port = process.env.PORT || 4001;
+app.use(cors());
 app.use(express.static("build"));
 //is this how we resolve the CORS error?
 
