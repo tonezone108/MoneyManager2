@@ -1,2 +1,1 @@
-web:node app.js
-web:node server.js
+web:npm run start-dev 

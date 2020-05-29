@@ -1,6 +1,6 @@
 const loginUser = (User) => {
   return function (dispatch) {
-    fetch("http://localhost:4001/auth/login", {
+    fetch("http://localhost:80/auth/login", {
       method: "POST",
       body: JSON.stringify(User),
       headers: {
@@ -25,7 +25,7 @@ const loginUser = (User) => {
 //This is new
 const addUser = (User) => {
   return function (dispatch) {
-    fetch("http://localhost:4001/auth/signup", {
+    fetch("http://localhost:80/auth/signup", {
       method: "POST",
       body: JSON.stringify(User),
       headers: {
@@ -71,7 +71,7 @@ const logoutUser = (User) => {
 ////
 const getUserExpenses = (User) => {
   return function (dispatch) {
-    fetch(`http://localhost:4001/expenses/${User.userName}`, {
+    fetch(`http://localhost:80/expenses/${User.userName}`, {
       method: "GET",
       // body: JSON.stringify(User),
 
@@ -105,7 +105,7 @@ const userExpensesLoaded = (data) => {
 
 const getUserAllocation = (User) => {
   return function (dispatch) {
-    fetch(`http://localhost:4001/allocation/${User.userName}`, {
+    fetch(`http://localhost:80/allocation/${User.userName}`, {
       method: "GET",
       // body: JSON.stringify(User),
       headers: {
@@ -169,7 +169,7 @@ const addAllocation = (incomeAllocation) => {
 const createExpense = (incomeExpenses) => {
   //HOW TO USE?
   return function (dispatch) {
-    fetch(`http://localhost:4001/expenses/${incomeExpenses.userName}`, {
+    fetch(`http://localhost:80/expenses/${incomeExpenses.userName}`, {
       //userName needs to go here
       method: "PUT",
       body: JSON.stringify(incomeExpenses),
@@ -187,7 +187,7 @@ const createExpense = (incomeExpenses) => {
         })
       )
       .catch((error) => {
-        fetch("http://localhost:4001/expenses", {
+        fetch("http://localhost:80/expenses", {
           //userName needs to go here
           method: "POST",
           body: JSON.stringify(incomeExpenses),
@@ -221,7 +221,7 @@ const createExpense = (incomeExpenses) => {
 const createAllocation = (incomeAllocation) => {
   //HOW TO USE?
   return function (dispatch) {
-    fetch(`http://localhost:4001/allocation/${incomeAllocation.userName}`, {
+    fetch(`http://localhost:80/allocation/${incomeAllocation.userName}`, {
       //userName needs to go here
       method: "PUT",
       body: JSON.stringify(incomeAllocation),
@@ -238,7 +238,7 @@ const createAllocation = (incomeAllocation) => {
         })
       )
       .catch((error) => {
-        fetch("http://localhost:4001/allocation", {
+        fetch("http://localhost:80/allocation", {
           //userName needs to go here
           method: "POST",
           body: JSON.stringify(incomeAllocation),
