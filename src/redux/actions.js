@@ -1,6 +1,6 @@
 const loginUser = (User) => {
   return function (dispatch) {
-    fetch("http://localhost:80/auth/login", {
+    fetch("/auth/login", {
       method: "POST",
       body: JSON.stringify(User),
       headers: {
@@ -25,7 +25,7 @@ const loginUser = (User) => {
 //This is new
 const addUser = (User) => {
   return function (dispatch) {
-    fetch("http://localhost:80/auth/signup", {
+    fetch("/auth/signup", {
       method: "POST",
       body: JSON.stringify(User),
       headers: {
