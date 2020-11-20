@@ -3,7 +3,7 @@ const pool = require("../sql/connection");
 const { handleSQLError } = require("../sql/error");
 
 const getAllAllocations = (req, res) => {
-  pool.query("SELECT * FROM incomeAllocation", (err, rows) => {
+  pool.query("SELECT * FROM income_allocation", (err, rows) => {
     if (err) return handleSQLError(res, err);
     return res.json(rows);
   });
@@ -11,7 +11,7 @@ const getAllAllocations = (req, res) => {
 
 const getAllocationById = (req, res) => {
   let sql =
-    "SELECT earnedIncome, savings, groceries, transport, leisure, luxuries FROM incomeAllocation WHERE userName = ?";
+    "SELECT earnedIncome, savings, groceries, transport, leisure, luxuries FROM income_allocation WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
@@ -30,7 +30,7 @@ const createAllocation = (req, res) => {
     userName,
   } = req.body;
   let sql =
-    "INSERT INTO incomeAllocation (earnedIncome, savings, groceries, transport, leisure, luxuries, userName  ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO income_allocation (earnedIncome, savings, groceries, transport, leisure, luxuries, userName  ) VALUES (?, ?, ?, ?, ?, ?, ?)";
   sql = mysql.format(sql, [
     earnedIncome,
     savings,
@@ -58,7 +58,7 @@ const updateAllocationById = (req, res) => {
     userName,
   } = req.body;
   let sql =
-    "UPDATE incomeAllocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE userName = ?";
+    "UPDATE income_allocation SET earnedIncome = ?, savings = ?, groceries = ?, transport = ?, leisure = ?, luxuries = ?  WHERE userName = ?";
   sql = mysql.format(sql, [
     earnedIncome,
     savings,
@@ -77,7 +77,7 @@ const updateAllocationById = (req, res) => {
 };
 
 const deleteALlocationByAllocationId = (req, res) => {
-  let sql = "DELETE FROM incomeAllocation WHERE allocationId = ?";
+  let sql = "DELETE FROM income_allocation WHERE allocationId = ?";
   sql = mysql.format(sql, [req.params.userName]);
 
   pool.query(sql, (err, results) => {

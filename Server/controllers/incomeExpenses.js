@@ -5,7 +5,7 @@ const pool = require("../sql/connection");
 const { handleSQLError } = require("../sql/error");
 
 const getAllEntries = (req, res) => {
-  pool.query("SELECT * FROM incomeExpenses", (err, rows) => {
+  pool.query("SELECT * FROM income_expenses", (err, rows) => {
     if (err) return handleSQLError(res, err);
     return res.json(rows);
   });
@@ -13,7 +13,7 @@ const getAllEntries = (req, res) => {
 
 const getEntryById = (req, res) => {
   let sql =
-    "SELECT regularIncome, taxes, insurance, debts, housing, investing, remainingIncome FROM incomeExpenses WHERE userName = ?";
+    "SELECT regularIncome, taxes, insurance, debts, housing, investing, remainingIncome FROM income_expenses WHERE userName = ?";
   sql = mysql.format(sql, [req.params.id]);
 
   pool.query(sql, (err, rows) => {
@@ -36,7 +36,7 @@ const createEntry = (req, res) => {
   } = req.body;
 
   let sql =
-    "INSERT INTO incomeExpenses (regularIncome, taxes, insurance, debts, housing, investing, remainingIncome, userName) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    "INSERT INTO income_expenses (regularIncome, taxes, insurance, debts, housing, investing, remainingIncome, userName) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
   // WHAT GOES IN THE BRACKETS
   sql = mysql.format(sql, [
     regularIncome,
@@ -67,7 +67,7 @@ const updateEntryById = (req, res) => {
     userName,
   } = req.body;
   let sql =
-    "UPDATE incomeExpenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE userName = ? ";
+    "UPDATE income_expenses SET regularIncome = ?, taxes = ?, insurance = ?, debts = ?, housing = ?, investing = ?, remainingIncome = ? WHERE userName = ? ";
   sql = mysql.format(sql, [
     regularIncome,
     taxes,
@@ -87,7 +87,7 @@ const updateEntryById = (req, res) => {
 };
 
 const deleteUserByExpensesId = (req, res) => {
-  let sql = "DELETE FROM incomeExpenses WHERE expensesId = ?";
+  let sql = "DELETE FROM income_expenses WHERE expensesId = ?";
   sql = mysql.format(sql, [req.params.expensesId]);
 
   pool.query(sql, (err, results) => {

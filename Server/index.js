@@ -8,11 +8,12 @@ const incomeAllocationRouter = require("./routers/incomeAllocation");
 const { logger } = require("./middleware");
 const app = express();
 const port = process.env.PORT || 80;
-app.use(cors());
+
 app.use(express.static("build"));
 //is this how we resolve the CORS error?
 
 app.use(function (req, res, next) {
+  // app.use(cors({ origin: ["https://localhost:4001"], credentials: true }));
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Content-Type", "application/json");

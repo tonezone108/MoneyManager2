@@ -9,13 +9,13 @@ const defaultUser = {
 const HandleLogin = (props) => {
   if (!props.user.userName) {
     return (
-      <a href="/login">
+      <a href="/">
         <Button>Login</Button>
       </a>
     );
   } else {
     return (
-      <a href="/login">
+      <a href="/">
         <Button onClick={() => props.logoutUser(defaultUser)}>Logout</Button>
       </a>
     );
