@@ -32,6 +32,7 @@ class App extends Component {
     };
 
     this.props.loginUser(userObject);
+
   };
 
   createAccount = (e) => {
@@ -49,6 +50,7 @@ class App extends Component {
     if (this.props.user.userName !== "") {
       document.cookie = "loggedIn=true;max-age=600*1000";
       this.setState({ redirect: true }); //leave this alone.
+      console.log(this.props.user.userName)
     } else {
     }
   }
@@ -120,7 +122,7 @@ class App extends Component {
                   <TextField
                     id="userPassword"
                     placeholder="User Password"
-                    value={this.state.address}
+                    value={this.state.userPassword}
                     onChange={this.handleTextChange}
                     name="userPassword"
                     label="Password"

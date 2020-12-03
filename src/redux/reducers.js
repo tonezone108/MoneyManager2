@@ -30,7 +30,11 @@ const incomeExpenses = (state = {}, action) => {
     case "LOAD_USER_EXPENSES":
       return action.value;
     case "ADD_USER_EXPENSES":
-      return [...state, action.value];
+      return { state: [...state, action.value] };
+      case "RESET_LIST":
+        return {
+          state: [...state, []],
+        };
     default:
       return state;
   }

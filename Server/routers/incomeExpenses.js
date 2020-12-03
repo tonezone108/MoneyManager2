@@ -3,7 +3,7 @@ const incomeExpenses = require("../controllers/incomeExpenses");
 const { authenticate } = require("../middleware");
 const router = express.Router();
 
-router.get("/", authenticate, incomeExpenses.getAllEntries);
+router.get("/",  incomeExpenses.getAllEntries);
 
 router.get("/:id", incomeExpenses.getEntryById);
 
@@ -13,7 +13,6 @@ router.put("/:id", incomeExpenses.updateEntryById);
 
 router.delete(
   "/:expensesId",
-  authenticate,
   incomeExpenses.deleteUserByExpensesId
 );
 

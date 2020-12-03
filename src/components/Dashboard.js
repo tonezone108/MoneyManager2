@@ -14,6 +14,13 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.getUserExpenses(this.props.user);
     this.props.getUserAllocation(this.props.user);
+    console.log(this.props.user.userName)
+  }
+
+  componentDidUpdate() {
+    this.props.getUserExpenses(this.props.user);
+    this.props.getUserAllocation(this.props.user);
+
   }
   //let this go to heroku, let this go to heroku, let this go to heroku, let this go to heroku
   render() {
