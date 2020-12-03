@@ -23,7 +23,7 @@ class App extends Component {
                   <Button>Home</Button>
                 </a>
                 <HandleLogin />
-                <a href="https://github.com/tonezone108/MoneyManager2/tree/NewAppTest">
+                <a href="https://github.com/tonezone108/MoneyManager2/tree/NewAppTest" target="_blank">
                 <Button>GITHUB</Button>
                 </a>
               </div>
